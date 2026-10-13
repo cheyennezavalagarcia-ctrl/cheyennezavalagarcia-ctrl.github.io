@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adopta Patitas 🐾</title>
+  <meta name="description" content="Adopta perros y gatos que buscan un hogar lleno de amor.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero" id="inicio">
+    <nav class="navbar">
+      <a class="logo" href="#inicio">🐾 Adopta Patitas</a>
+      <div class="nav-links">
+        <a href="#mascotas">Adoptar</a>
+        <a href="#publicar">Publicar mascota</a>
+        <a href="#qr">QR</a>
+      </div>
+    </nav>
+
+    <div class="hero-content">
+      <div>
+        <span class="badge">❤️ Una segunda oportunidad</span>
+        <h1>Un hogar puede cambiar una vida.</h1>
+        <p>Encuentra perros y gatos que buscan una familia responsable, cariñosa y para siempre.</p>
+        <a class="btn primary" href="#mascotas">Ver mascotas</a>
+      </div>
+      <div class="hero-card">
+        <div class="paw-big">🐾</div>
+        <h3>Adopta, no compres</h3>
+        <p>Cada patita merece un lugar seguro donde sentirse querida.</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="stats">
+      <div><strong id="totalPets">0</strong><span>Mascotas</span></div>
+      <div><strong id="dogCount">0</strong><span>Perros</span></div>
+      <div><strong id="catCount">0</strong><span>Gatos</span></div>
+    </section>
+
+    <section class="section" id="mascotas">
+      <div class="section-title">
+        <div>
+          <span class="eyebrow">ENCUENTRA A TU NUEVO MEJOR AMIGO</span>
+          <h2>Mascotas en adopción</h2>
+        </div>
+      </div>
+
+      <div class="filters">
+        <input id="searchInput" type="search" placeholder="🔎 Buscar por nombre, edad, ciudad..." aria-label="Buscar mascota">
+        <select id="typeFilter" aria-label="Filtrar por tipo">
+          <option value="todos">🐾 Todos</option>
+          <option value="perro">🐶 Perros</option>
+          <option value="gato">🐱 Gatos</option>
+        </select>
+      </div>
+
+      <div id="petGrid" class="pet-grid"></div>
+      <p id="emptyState" class="empty hidden">No encontramos mascotas con esos filtros.</p>
+    </section>
+
+    <section class="section publish-section" id="publicar">
+      <div class="section-title">
+        <div>
+          <span class="eyebrow">AYUDA A OTRA MASCOTA</span>
+          <h2>Publicar una mascota</h2>
+        </div>
+      </div>
+
+      <form id="petForm" class="form-card">
+        <div class="form-grid">
+          <label>Nombre
+            <input name="name" required placeholder="Ej. Luna">
+          </label>
+          <label>Tipo
+            <select name="type" required>
+              <option value="perro">🐶 Perro</option>
+              <option value="gato">🐱 Gato</option>
+            </select>
+          </label>
+          <label>Edad
+            <input name="age" required placeholder="Ej. 8 meses">
+          </label>
+          <label>Sexo
+            <select name="sex">
+              <option>Hembra</option>
+              <option>Macho</option>
+            </select>
+          </label>
+          <label>Ciudad / zona
+            <input name="location" placeholder="Ej. Hermosillo, Sonora">
+          </label>
+          <label>Contacto
+            <input name="contact" placeholder="Ej. WhatsApp 662 000 0000">
+          </label>
+          <label class="full">Foto
+            <input name="photo" type="file" accept="image/*" required>
+          </label>
+          <label class="full">Descripción
+            <textarea name="description" rows="4" placeholder="Cuenta un poco sobre su personalidad, cuidados, historia, etc."></textarea>
+          </label>
+        </div>
+        <button class="btn primary" type="submit">➕ Publicar mascota</button>
+        <button class="btn secondary" id="resetPets" type="button">Restaurar ejemplos</button>
+        <p class="form-note">Los datos se guardan en este navegador. Para que otras personas los vean, publica el sitio y comparte su URL.</p>
+      </form>
+    </section>
+
+    <section class="section qr-section" id="qr">
+      <div class="section-title">
+        <div>
+          <span class="eyebrow">COMPARTE LA PÁGINA</span>
+          <h2>Genera tu código QR</h2>
+        </div>
+      </div>
+      <div class="qr-card">
+        <div>
+          <p>Cuando publiques esta página, pega aquí su dirección y podrás generar un QR para que la gente entre directamente.</p>
+          <input id="urlInput" type="url" placeholder="https://tu-pagina.com">
+          <button id="makeQR" class="btn primary" type="button">Generar QR</button>
+          <p class="form-note">El QR se genera dentro de la página usando QRCode.js.</p>
+        </div>
+        <div id="qrcode" class="qr-box"><span>🐾</span></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>🐾 Adopta Patitas · Hecho para dar segundas oportunidades.</p>
+  </footer>
+
+  <dialog id="petDialog">
+    <button class="close" id="closeDialog" aria-label="Cerrar">×</button>
+    <div id="dialogContent"></div>
+  </dialog>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
